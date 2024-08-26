@@ -5,6 +5,7 @@ import gg.druffko.rssbot.events.InteractionEventListener;
 import gg.druffko.rssbot.events.ReadyEventListener;
 import gg.druffko.rssbot.content.RssGrabber;
 
+import gg.druffko.rssbot.events.SlashCommands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
@@ -21,6 +22,9 @@ public class bot {
                 .addEventListeners(new ReadyEventListener(), new InteractionEventListener())
                 .build();
         jda.awaitReady();
+
+        // Activate SlashCommands
+        SlashCommands.activateSlashCommands();
 
         //Get Channel Name from ID
         TextChannel textChannel = jda.getTextChannelById(Settings.rssChannel);
